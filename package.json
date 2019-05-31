@@ -15,5 +15,19 @@
     "A920"
   ],
   "author": "Digital Afrique Télécom",
-  "license": "ISC"
+  "license": "ISC",
+  "cordova": {
+    "id": "cordova-plugin-posprinter",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melvin-Ylane/PosPrinter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Melvin-Ylane/PosPrinter/issues"
+  },
+  "homepage": "https://github.com/Melvin-Ylane/PosPrinter#readme"
 }
