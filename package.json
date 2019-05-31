@@ -1,5 +1,5 @@
 {
-  "name": "posprinter",
+  "name": "cordova-plugin-posprinter",
   "version": "1.0.0",
   "description": "Plugin to use printer functionnality for POS A920",
   "main": "index.js",

@@ -16,6 +16,9 @@ import com.pax.dal.entity.EFontTypeAscii;
 import com.pax.dal.entity.EFontTypeExtCode;
 import com.pax.dal.exceptions.PrinterDevException;
 
+import android.widget.Toast;
+// import java.lang.Exception;
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -29,10 +32,13 @@ public class PosPrinter extends CordovaPlugin {
         super.initialize(cordova, webView);
         
         try{
-            idal = NeptuneLiteUser.getInstance().getDal(cordova.getContext());
+            idal = NeptuneLiteUser.getInstance().getDal(this.cordova.getActivity().getApplicationContext());
             printer = idal.getPrinter();
         }catch(Exception ex){
-            CallbackContext.error("Something went wrong "+ ex)
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast = Toast.makeText(this.cordova.getActivity().getApplicationContext(), "Something went wrong "+ ex, duration);
+            toast.show();
         }
     }
 
@@ -61,17 +67,22 @@ public class PosPrinter extends CordovaPlugin {
 
     private void startPrint(JSONArray args, CallbackContext callbackContext) {
         if (args != null) {
+
             try{
                 String message = args.getJSONObject(0).getString("param1");
+            
+                try{
+                    printer.init();
+                    printer.printStr(message, "utf8");
+                    printer.step(Integer.parseInt(message));
+                    printer.setGray(5);
 
-                printer.init();
-                printer.printStr(message, "utf8");
-                printer.step(Integer.parseInt(message));
-                printer.setGray(5);
+                    printer.start();
 
-                printer.start();
-
-            }catch(PrinterDevException ex){
+                }catch(PrinterDevException ex){
+                    callbackContext.error("Something went wrong at print "+ ex.toString());
+                }
+            }catch(JSONException ex){
                 callbackContext.error("Something went wrong at print "+ ex.toString());
             }
         }else{
