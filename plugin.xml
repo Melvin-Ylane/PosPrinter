@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-posprinter" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>PosPrinter</name>
+
+    <js-module name="PosPrinter" src="www/PosPrinter.js">
+        <clobbers target="PosPrinter" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="PosPrinter">
+                <param name="android-package" value="cordova.plugin.posprinter.PosPrinter" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/PosPrinter.java" target-dir="src/cordova/plugin/posprinter/PosPrinter" />
+
+        <lib-file src="src/android/libs/NeptuneLiteApi_V3.01.00_20181017.jar"/>
+    </platform>
+</plugin>
