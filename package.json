@@ -1,31 +1,24 @@
 {
-  "name": "cordova-plugin-posprinter",
+  "name": "posprinter",
   "version": "1.0.0",
-  "description": "Plugin to use printer functionnality for POS A920",
-  "main": "index.js",
+  "description": "Plugin for print with A920 PAX",
+  "main": "www/PosPrinter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "POS",
-    "Printer",
-    "Ionic",
-    "Pax",
-    "POS",
-    "A920"
-  ],
-  "author": "Digital Afrique Télécom",
-  "license": "ISC",
-  "cordova": {
-    "id": "cordova-plugin-posprinter",
-    "platforms": [
-      "android"
-    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Melvin-Ylane/PosPrinter.git"
   },
+  "keywords": [
+    "POS",
+    "Printer",
+    "Ionic",
+    "PAX",
+    "A920"
+  ],
+  "author": "Digital Afrique Télécom",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Melvin-Ylane/PosPrinter/issues"
   },
